@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    
+}
+header{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(img/hallway.JPG);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+ul.one{
+    float: right;
+    list-style-type: none;
+    margin-top: 50px;
+    font-family: 'Open Sans';
+}
+ul.two{
+    float: left;
+    list-style-type: none;
+    margin-top: 50px;
+    font-family: arial;
+}
+ul.one, ul.two, li{
+    display: inline-block;
+    
+}
+ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+}
+ul li a:hover{
+    background-color: transparent;
+    color: orange;
+    border: 1px solid transparent;
+}
+ul li.active a{
+    background-color: transparent;
+    color: orange;
+}
+ul.medsos{
+    float: right;
+    list-style-type: none;
+    font-family: logisoso;
+    margin-right: 30%;
+    margin-top:-6%;
+    font-size: 20px;
+    color: black;
+    line-height: 30px;
+}
+
+.main {
+    width: 1200px;
+    margin: auto;
+}
+.title{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    
+}
+.title h1{
+    transform: translate(-50%, -50%);
+    color: white;
+    letter-spacing: 5px;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: love and heart;
+}
+.title h6{
+    color: rgb(255, 255, 255);
+    font-family: logisoso;
+    font-size: 20px;
+    transform: translate(-44%, -50%);
+}
+.scroll img{
+    margin-top: 55%;
+    margin-left: 40%;
+    cursor: pointer;
+}
+#pp{
+    position: absolute;
+    width: 50%;
+    height: 1%;
+    background-color: #ffe375ad;
+    top: 51%;
+    left: 25%;
+}
+#pp2{
+    position: absolute;
+    width: 50%;
+    height: 1%;
+    background-color: rgba(160, 99, 19, 0.514);
+    top: 51%;
+    left: 25%;
+}
+
+.content h1{
+    margin-top: 7%;
+    width: 65%;
+}
+#sec1{
+    height: 50vh;
+}
+#sec2{
+    height: 60vh;
+}
+#sec3{
+    height: 20vh;
+}
+p{
+    font-family: fjallaone;
+    text-align: justify;
+    font-size: 18px;
+    margin-left: 10%;
+    width: 45%;
+}
+h2{
+    font-family: logisoso;
+    font-size: 70px;
+    letter-spacing: 5px;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+#square{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 20px rgba(255, 166, 0, 0.644);
+    position: fixed;
+}
+.line{
+    margin-top: -5.5%;
+    margin-left: 50%;
+}
+li#twt, li#ig{
+    text-decoration: none;
+    color: black;
+}
+.footer{
+    width: 100%;
+    height: 30px;
+    background-color: grey;
+}

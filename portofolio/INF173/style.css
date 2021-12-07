@@ -1,0 +1,1020 @@
+:root {
+    --hamburger-color: rgba(179, 44, 39, 0.95);
+    --section-1-color: rgba(146, 39, 36, 0.85);
+    --slide-color: rgb(229, 55, 50);
+    --menu-speed: 0.75s;
+}
+
+@media screen and (max-width: 767px) {}
+
+@font-face {
+    font-family: FjallaOne-Regular;
+    src: url(font/FjallaOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Logisoso;
+    src: url(font/Logisoso.ttf);
+}
+
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#sec-1 {
+    background-image: url('img/bg_mobil.png');
+}
+
+.scroll-down::before,
+.scroll-down::after{
+    content: '';
+    position: absolute;
+    top: 88%;
+    right: 4%;
+    border: 2px solid white;
+    height: 10px;
+    width: 10px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-top: transparent;
+    border-left: transparent;
+    animation: scroll-down 1.6s ease-in-out infinite;
+}
+.scroll-down::after{
+    top: 93%;
+}
+
+@keyframes scroll-down {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: 100%;
+    }
+}
+
+/* NAV */
+.menu-wrap {
+    position: fixed;
+    top: 30px;
+    left: 70px;
+    z-index: 10;
+}
+  
+.menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+  
+.menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+    background: var(--hamburger-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6vh;
+    background-color: #b32c27;
+    border-radius: 50%;
+}
+  /*Hamburgline*/
+.menu-wrap .hamburger > div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+.menu table{
+    border-collapse: collapse;
+    width: 1200px;
+    height: 450px;
+    position: center;
+    font-size: 25px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+    letter-spacing: 1.5px;
+}
+  
+fu, .right {
+    padding-top: 0;
+    font-size: small;
+    font-family: FjallaOne-Regular, sans-serif;
+    color: white;
+}
+  
+fa{
+    padding-top: 10;
+    font-size: medium;
+   font-family: FjallaOne-Regular, sans-serif;
+    color: white;
+}
+  
+table.tabelnav, th.tabelnav, td.tabelnav {
+    border: 1px solid rgb(255, 138, 138);
+}
+th.tabelnav, td.tabelnav {
+    padding-top: 10px;
+}
+th.tabelnav{
+    color: white;
+} 
+  
+  /*top & bottom line */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -8px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+  
+  /*Moves line down */
+.menu-wrap .hamburger > div:after {
+    top: 8px;
+}
+  
+  /*Toggler animate*/  
+.menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+  
+  /*Turn into X*/
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+  
+  /*rotate on hoven when checked*/
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+}
+  
+  /* show menu */
+.menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+  
+.menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+}
+  
+.menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+  
+.menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    /*Hidden*/
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b32c27;
+}
+  
+.menu-wrap .menu > div {
+    background-color: var(--hamburger-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+  
+.menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+  
+.menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color:#fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+  
+.menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+  /* END OF NAV */
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.wrapper{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 110px;
+    transform: translate(-50%,-50%);
+}
+
+.carousel-footer{
+    position: absolute;
+    align-items: center;
+    background-color: black;
+    color: rgb(158, 158, 158);
+    width: 100vw;
+    height: 9vh;
+    cursor: pointer;
+}
+
+carousel-indicators {
+    position: absolute;
+    top: 100%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+    
+  ol.carousel-indicators li,
+  ol.carousel-indicators li.active {
+    float: left;
+    width: 30px;
+    height: 5px;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+  }
+    
+  ol.carousel-indicators li.active {
+    background-color: #b32c27;
+  }
+
+.parallelogram {
+    position: absolute;
+    top: 95%;
+    left: 20%;
+    width: 90px;
+    height: 25px;
+    transform: skew(-20deg);
+    background: #b32c27;
+}
+
+.parallelogram2 {
+    position: absolute;
+    top: 63%;
+    left: 16%;
+    width: 15px;
+    height: 94px;
+    transform: skew(-20deg);
+    background: #e53732;
+}
+
+#parallelogram3 {
+    position: absolute;
+    top: 88%;
+    left: 25.5%;
+    width: 6px;
+    height: 23px;
+    transform: skew(-20deg);
+    background: #b32c27;
+}
+#parallelogram4 {
+    position: absolute;
+    top: 88%;
+    left: 50.5%;
+    width: 6px;
+    height: 23px;
+    transform: skew(-20deg);
+    background: #b32c27;
+}
+#parallelogram5 {
+    position: absolute;
+    top: 88%;
+    left: 75.5%;
+    width: 6px;
+    height: 23px;
+    transform: skew(-20deg);
+    background: #b32c27;
+}
+
+.parallelogram6 {
+    position: absolute;
+    top: 700px;
+    width: 1425px;
+    height: 1700px;
+    background: #171717;
+}
+
+.parallelogram7 {
+    position: absolute;
+    bottom: 0px;
+    width: 1423px;
+    height: 140px;
+    background: #333333;
+}
+
+.parallelogram8 {
+    position: absolute;
+    bottom: 27%;
+    left: 28%;
+    width: 205px;
+    height: 60px;
+    background: #b4b4b4;
+    cursor: pointer;
+}
+.parallelogram9 {
+    position: absolute;
+    bottom: 27%;
+    left: 43%;
+    width: 205px;
+    height: 60px;
+    background: #b4b4b4;
+    cursor: pointer;
+}
+.parallelogram10 {
+    position: absolute;
+    bottom: 27%;
+    left: 58%;
+    width: 205px;
+    height: 60px;
+    background: #b4b4b4;
+    cursor: pointer;
+}
+
+.parallelogram11 {
+    position: absolute;
+    top: 100%;
+    bottom: 0px;
+    width: 1425px;
+    height: 70px;
+    background: #171717;
+}
+
+.parallelogram12 {
+    position: absolute;
+    top: 1770px;
+    bottom: 0px;
+    width: 1425px;
+    height: 40px;
+    background: #e53732;
+}
+
+.parallelogram13 {
+    position: absolute;
+    left: 67.2%;
+    width: 95px;
+    height: 40px;
+    background: #b32c27;
+    cursor: pointer;
+}
+
+.parallelogram14 {
+    position: absolute;
+    left: 74%;
+    width: 160px;
+    height: 40px;
+    background: #b32c27;
+    cursor: pointer;
+}
+
+.carousel-indicators {
+    display: flex;
+    top: 100%;
+    justify-content: space-between;
+}
+
+.foot {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+}
+
+.footer-type {
+    font-size: 13px;
+}
+
+.wrap_1 {
+    position: relative;
+    background-color: #171717;
+}
+.wrap_2 {
+    position: relative;
+    width: 1440px;
+    background-color: #171717;
+    margin-bottom: 220px;
+}
+
+.wrap_3{
+    background-color: #171717;
+    position: relative;
+}
+
+.wrap_4{
+    background-color: #171717;
+    margin-top: 100px;
+    position: absolute;
+}
+
+.maps {
+    background-color: #171717;
+    margin-top: 900px;
+    width: 1425px;
+    position: absolute;
+}
+
+.foto {
+    position: absolute;
+    width: 698px;
+    margin-top: 10%;
+    left: 51.5%;
+}
+
+.foto-bg {
+    position: relative;
+    
+}
+
+#leftsquare {
+    position: absolute;
+    top: 43%;
+    width: 1455px;
+    height: 623px;
+    background: #e53732;
+}
+
+/* text */
+
+.text0 {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    width: 900px;
+    height: 25px;
+    color: white;
+}
+
+.text1 {
+    position: absolute;
+    top: 95%;
+    left: 21.5%;
+    width: 900px;
+    height: 25px;
+    font-size: 16px;
+    font-family: FjallaOne-Regular, sans-serif;
+    color: white;
+}
+
+.text3 {
+    position: absolute;
+    top: 62.5%;
+    left: 19%;
+    width: 900px;
+    height: 25px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+    font-size: 18px;
+}
+
+.text4 {
+    position: absolute;
+    top: 65%;
+    left: 19%;
+    font-size: 50pt;
+    font-weight: 10px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+    
+}
+
+.text5 {
+    position: absolute;
+    top: 64%;
+    right: 26%;
+    font-size: 20px;
+    color: white;
+}
+
+.text6 {
+    position: absolute;
+    top: 68%;
+    left: 68.5%;
+    font-size: 50px;
+    font-family: FjallaOne-Regular, sans-serif;
+    color: white;
+}
+
+.text7 {
+    position: absolute;
+    bottom: 19%;
+    left: 68.5%;
+    font-size: 17px;
+    color: white;
+}
+
+.text8 {
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    font-size: 50px;
+    color: white;
+    font-family: Logisoso, sans-serif;
+}
+
+.text9 {
+    position: absolute;
+    top: 30%;
+    left: 16%;
+    font-size: 15px;
+    color: white;
+    font-style: Yu Ghotic;
+}
+
+.text10 {
+    position: absolute;
+    top: 35%;
+    left: 16%;
+    font-size: 80px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+    letter-spacing: 10px;
+}
+
+.text11 {
+    position: absolute;
+    top: 73%;
+    left: 16%;
+    font-size: 25px;
+    color: white;
+    font-style: Yu Ghotic;
+}
+
+.text12 {
+    position: absolute;
+    top: 107%;
+    left: 16%;
+    width: 920px;
+    height: 25px;
+    font-size: 13.5px;
+    color: white;
+}
+
+.text13 {
+    position: absolute;
+    margin-top: 10%;
+    left: 16%;
+    font-size: 15px;
+    color: white;
+}
+
+.text14 {
+    position: absolute;
+    margin-top: 12%;
+    left: 16%;
+    font-size: 65px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+    letter-spacing: 15px;
+}
+
+.text15 {
+    position: absolute;
+    margin-top: 53.5%;
+    left: 25%;
+    font-size: 17px;
+    color: white;
+}
+
+.text16 {
+    position: absolute;
+    margin-top: 53.5%;
+    left: 50.2%;
+    font-size: 17px;
+    color: white;
+}
+
+.text17 {
+    position: absolute;
+    margin-top: 53.5%;
+    left: 75.5%;
+    font-size: 17px;
+    color: white;
+}
+
+.text18 {
+    position: absolute;
+    margin-top: 10%;
+    left: 15%;
+    width: 900px;
+    height: 25px;
+    font-style: Yu Ghotic;
+    font-size: 15px;
+    color: white;
+}
+
+.text19 {
+    position: absolute;
+    margin-top: 11.5%;
+    left: 15%;
+    width: 900px;
+    height: 25px;
+    font-size: 70px;
+    color: white;
+    font-family: FjallaOne-Regular, sans-serif;
+    letter-spacing: 15px;
+}
+
+.text20 {
+    position: absolute;
+    margin-top: 102%;
+    left: 15%;
+    width: 900px;
+    height: 25px;
+    font-size: 15px;
+    color: white;
+}
+
+.text21 {
+    position: absolute;
+    bottom: 30%;
+    left: 40%;
+    color: #333333;
+}
+
+.text22 {
+    position: absolute;
+    bottom: 30%;
+    left: 40%;
+    color: #333333;
+}
+
+.text23 {
+    position: absolute;
+    bottom: 30%;
+    left: 40%;
+    color: #333333;
+}
+
+.text24 {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.text25 {
+    position: absolute;
+    top: 40%;
+    right: 15%;
+    font-size: 10px;
+    color: white;
+}
+
+.text26 {
+    position: absolute;
+    top: 20%;
+    left: 14%;
+    font-size: 15px;
+    color: white;
+}
+
+.text27 {
+    position: absolute;
+    top: 78%;
+    left: 15%;
+    font-size: 15px;
+    width: 255px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.text28 {
+    position: absolute;
+    top: 120.5%;
+    left: 16%;
+    width: 210px;
+    height: 30px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.text29 {
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    font-size: 12px;
+    color: white;
+}
+
+.text30 {
+    position: absolute;
+    top: 25%;
+    left: 6%;
+    font-size: 12px;
+    color: white;
+}
+
+.text31 {
+    position: absolute;
+    top: 86%;
+    right: 3.3%;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+#part3 {
+    position: absolute;
+    width: 1440px;
+    height: 830px;
+    background: #171717;
+}
+
+#part4 {
+    position: relative;
+    width: 1440px;
+    height: 830px;
+    background: #171717;
+}
+
+.foto2 {
+    position: absolute;
+    width: 370px;
+    margin-top: 400px;
+    left: -10px;
+    
+}
+
+.footer2 {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.t1 {
+    position: absolute;
+    bottom: 8.5%;
+    left: 27%;
+    width: 900px;
+    color: white;
+    font-size: 20px;
+    font-family: FjallaOne-Regular, sans-serif;
+    cursor: pointer;
+}
+
+.t2 {
+    position: absolute;
+    bottom: 8.5%;
+    left: 52%;
+    width: 900px;
+    color: white;
+    font-size: 20px;
+    font-family: FjallaOne-Regular, sans-serif;
+    cursor: pointer;
+}
+
+.t3 {
+    position: absolute;
+    bottom: 8.5%;
+    left: 77%;
+    width: 900px;
+    color: white;
+    font-size: 20px;
+    font-family: FjallaOne-Regular, sans-serif;
+    cursor: pointer;
+}
+
+#ktk1 {
+    position: absolute;
+    top: 23%;
+    left: 17%;
+    width: 30px;
+}
+
+#ktk2 {
+    position: absolute;
+    top: 26.5%;
+    left: 17%;
+    width: 30px;
+}
+
+#ktk3 {
+    position: absolute;
+    top: 30.1%;
+    left: 17%;
+    width: 30px;
+}
+
+#ktk4 {
+    position: absolute;
+    top: 33.7%;
+    left: 17%;
+    width: 30px;
+}
+
+#ktk5 {
+    position: absolute;
+    top: 37.3%;
+    left: 17%;
+    width: 30px;
+}
+
+.tktk1 {
+    position: absolute;
+    top: 23.2%;
+    left: 22%;
+    width: 900px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tktk2 {
+    position: absolute;
+    top: 26.7%;
+    left: 22%;
+    width: 900px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tktk3 {
+    position: absolute;
+    top: 30.3%;
+    left: 22%;
+    width: 900px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tktk4 {
+    position: absolute;
+    top: 33.8%;
+    left: 22%;
+    width: 900px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tktk5 {
+    position: absolute;
+    top: 37.5%;
+    left: 22%;
+    width: 900px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.Q1 {
+    position: absolute;
+    top: 23.1%;
+    left: 17.6%;
+    color: white;
+}
+
+.Q2 {
+    position: absolute;
+    top: 26.7%;
+    left: 17.6%;
+    color: white;
+}
+
+.Q3 {
+    position: absolute;
+    top: 30.3%;
+    left: 17.6%;
+    color: white;
+}
+
+.Q4 {
+    position: absolute;
+    top: 33.9%;
+    left: 17.6%;
+    color: white;
+}
+
+.Q5 {
+    position: absolute;
+    top: 37.4%;
+    left: 17.6%;
+    color: white;
+}
+
+.box {
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 10px 5px 10px;
+    border-color: white;
+}
+
+.garis1 {
+    position: absolute;
+    margin-top: 26.3%;
+    margin-left: 15%;
+    width: 700pt;
+    opacity: 10%;
+}
+
+.garis2 {
+    position: absolute;
+    margin-top: 30.5%;
+    margin-left: 15%;
+    width: 700pt;
+    opacity: 10%;
+}
+
+.garis3 {
+    position: absolute;
+    margin-top: 34.8%;
+    margin-left: 15%;
+    width: 700pt;
+    opacity: 10%;
+}
+.garis4 {
+    position: absolute;
+    margin-top: 39.1%;
+    margin-left: 15%;
+    width: 700pt;
+    opacity: 10%;
+}
+.garis5 {
+    position: absolute;
+    margin-top: 43.3%;
+    margin-left: 15%;
+    width: 700pt;
+    opacity: 10%;
+}
+
+.garis6 {
+    position: absolute;
+    margin-top: 47.7%;
+    margin-left: 15%;
+    width: 700pt;
+    opacity: 10%;
+}
+
+#strip {
+    color: #e53732;
+    position: absolute;
+}
+
+.up {
+    position: absolute;
+    size: 20px;
+    top: 20%;
+    right: 4%;
+    color: white;
+    cursor: pointer;
+}

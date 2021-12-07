@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+header{
+    background-color: white;
+    height: 10vh;
+    background-size: cover;
+    background-position: center;
+}
+ul.one{
+    float: right;
+    list-style-type: none;
+    margin-top: 50px;
+    font-family: 'Open Sans';
+}
+ul.two{
+    float: left;
+    list-style-type: none;
+    margin-top: 50px;
+    font-family: arial;
+}
+ul.one, ul.two, li{
+    display: inline-block;
+    
+}
+ul li a{
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+}
+ul li a:hover{
+    background-color: transparent;
+    color: orange;
+    border: 1px solid transparent;
+}
+ul li.active a{
+    background-color: transparent;
+    color: orange;
+}
+ul.medsos{
+    float: right;
+    list-style-type: none;
+    font-family: logisoso;
+    margin-right: 30%;
+    margin-top:-6%;
+    font-size: 20px;
+    color: black;
+    line-height: 30px;
+}
+.main {
+    width: 1200px;
+    margin: auto;
+}
+.jmpg{
+    width: 100vh;
+    margin: auto;
+}
+.jampang{
+    width: 100%;
+}
+.kpai{
+    width: 100vh;
+    margin: auto;
+    text-align: center;
+}
+.jline{
+    width: 100vh;
+    margin: auto;
+    text-align: center;
+}
